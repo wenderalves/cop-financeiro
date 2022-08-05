@@ -1,0 +1,111 @@
+:root {
+    /* Colors */
+    --color-primary: #003475;
+    --color-primary__hover: #002055;
+    --color-secundary: #00b3bc;
+    --color-info: #6AB2FF;
+    --color-success: #ADE46C;
+    --color-warning: #FFC666;
+    --color-danger: #FF405D;
+
+    --color-white: #FFFFFF;
+    --color-greyLight-1: #F5F6FA;
+    --color-greyLight-2: #E4E8F1;
+    --color-greyLight-3: #D1D7E5;
+    --color-greyDark-1: #B1BACE;
+    --color-greyDark-2: #7C8493;
+    --color-greyDark-3: #484E5A;
+    --color-black: #373737;
+
+
+    /* Fonts */
+    --font-name: 'Roboto', sans-serif;
+    --font-size: 1.3rem;
+    --base-size: 10px;
+}
+
+/*Base*/
+html { font-size: var(--base-size) !important; }
+body {
+    font-family: var(--font-name);
+    background-color: var(--color-greyLight-1);
+    font-size: var(--font-size);
+}
+
+footer {
+    border-top: 1px solid var(--color-greyLight-3);
+    color: var(--color-info);
+}
+
+header nav {
+    background-color: var(--color-white);
+    box-shadow: 0px 6px 14px var(--color-primary);
+    z-index: 100;
+}
+
+.logo {
+    color: var(--color-black) !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.menu { list-style: none; }
+.menu a { cursor:pointer; text-decoration: none; }
+
+.header__top {
+    background: url('../images/fundo-abstrato-azul.jpg') no-repeat center top;
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+.header__top .title {
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+.header__top .commands .icon {
+    background-color: var(--color-secundary);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    padding: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.header__top .commands .indicador .label {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--color-secundary);
+}
+.header__top .commands .indicador .valor {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.card {
+    background-color: var(--color-white);
+    box-shadow: 0px 1px 2px #cccccc;
+    padding: 1rem;
+}
+
+.card .title {
+    font-size: 1.4rem;
+    color: var(--color-greyDark-2);
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary__hover);
+}
+
+/* table */
+table .lancamento td {
+    border-bottom: 1px solid var(--color-greyLight-1);
+    vertical-align: middle;
+}

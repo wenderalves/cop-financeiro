@@ -1,0 +1,105 @@
+/* Themes Base */
+:root {
+    --color-primary-900: #00224C;
+    --color-primary-700: #002C64;
+    --color-primary-500: #003375;
+    --color-primary-300: #0047A2;
+    --color-primary-100: #025DD1;
+
+    --color-secundary-900: #01708F;
+    --color-secundary-700: #008FB8;
+    --color-secundary-500: #00B3E6;
+    --color-secundary-300: #0AC7FC;
+    --color-secundary-100: #38CDF7;
+
+    --color-danger-900: #6C0000;
+    --color-danger-700: #9F0000;
+    --color-danger-500: #BF0000;
+    --color-danger-300: #EB3131;
+    --color-danger-100: #F95959;
+
+    --color-warning-900: #9A7E0C;
+    --color-warning-700: #9A7E0C;
+    --color-warning-500: #FFCD00;
+    --color-warning-300: #FFDD54;
+    --color-warning-100: #FFE479;
+
+    --color-success-900: #003500;
+    --color-success-700: #006500;
+    --color-success-500: #008000;
+    --color-success-300: #1BA71B;
+    --color-success-100: #3BB23B;
+
+    --color-neutral-0: #ffffff;
+    --color-neutral-100: #f4f4f4;
+    --color-neutral-200: #cccccc;
+    --color-neutral-300: #bfbfbf;
+    --color-neutral-500: #9f9f9f;
+    --color-neutral-700: #5f5f5f;
+    --color-neutral-900: #1f1f1f;
+    --color-neutral-1000: #000000;
+
+    --font-family: 'Roboto', sans-serif;
+    --font-size-base: 10px;
+
+}
+
+/* import de fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reset */
+html { font-size: var(--font-size-base); }
+body, h1,h2,h3,h4,h5,h6 { padding: 0; margin: 0; }
+
+
+/* Estrutura */
+.content {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.row.column {
+    flex-direction: column !important;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-1 { padding: 0.8rem; }
+.p-1-0 { padding: 0.8rem 0; }
+
+.p-2 { padding: 1.6rem; }
+.p-2-0 { padding: 1.6rem 0; }
+
+.mb-1 { margin-bottom: 0.8rem; }
+.mb-2 { margin-bottom: 1.6rem; }
+.mb-3 { margin-bottom: 2.4rem; }
+
+.card {
+    box-shadow: 0px 0px 4px var(--color-neutral-100);
+    border-radius: 0.4rem;
+    background-color: var(--color-neutral-0);
+}
+
+
+/* Tema aplicado */
+body {
+    background-color: var(--color-neutral-100);
+    font-family: var(--font-family);
+    font-size: 1.4rem;
+}
