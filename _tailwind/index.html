@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script src="./config.js"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn {
+                @apply flex flex-row items-center justify-center w-[150px] h-[43px] rounded gap-3;
+            }
+            .btn-small {
+                @apply flex flex-row items-center justify-center w-[100px] h-[32px] rounded gap-2;
+            }
+            .indicador {
+                @apply flex flex-col items-start justify-start;
+            }
+            .indicador .label {
+                @apply text-xs uppercase text-gray-300 leading-none;
+            }
+            .indicador .valor {
+                @apply text-xl font-bold;
+            }
+            .lancamento-grupo {
+                @apply flex flex-row w-full items-center text-xs uppercase bg-secundary p-1 text-white gap-1;
+            }
+            .lancamento-dados {
+                @apply flex flex-row w-full items-center text-sm text-gray-700 pl-10 pr-2 py-1 gap-2 border-b border-gray-100;
+            }
+        }
+    </style>
+
+
+    <title>Home</title>
+</head>
+<body class="flex flex-col h-screen bg-gray-200">
+    <header class="flex flex-col">
+        <nav class="flex flex-row justify-between items-center w-full py-2 px-4 shadow-md bg-white z-10 h-12">
+            <div class="flex flex-row gap-2 items-center">
+                <img src="assets/images/logo.png" class="h-7">
+                <span class="font-bold uppercase text-primary text-sm">Planejamento Financeiro</span>
+            </div>
+            <ul class="flex flex-row align-cencer items-center gap-2">
+                <li><a href="">Home</a></li>
+                <li><a href="">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="flex flex-col justify-center h-40 bg-primary text-white py-2 px-4 bg-hero-pattern bg-blend-soft-light">
+            <h1 class="text-3xl font-bold my-2">
+                Dashboard
+            </h1>
+            <div class="flex flex-row items-center justify-start gap-6 my-2">
+                <div class="p-4 flex items-center justify-center rounded-full bg-secundary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-wallet" width="28" height="28" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12"></path>
+                        <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+                     </svg>
+                </div>
+                <div class="indicador">
+                    <span class="label">Balanço</span>
+                    <span class="valor">R$ 123.067,98</span>
+                </div>
+                <div class="indicador">
+                    <span class="label">Entradas</span>
+                    <span class="valor">R$ 100.000,00</span>
+                </div>
+                <div class="indicador">
+                    <span class="label">Saídas</span>
+                    <span class="valor">R$ 23.067,98</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-auto overflow-auto p-4">
+        <div class="flex flex-col items-start justify-start shadow drop-shadow-md p-3 rounded-md bg-white">
+            <h2 class="font-bold text-green-400 mb-2">Nova Movimentação</h2>
+            <form class="flex flex-row gap-4 items-end">
+                <label for="data" class="flex flex-col justify-start text-[10px] text-gray-500 uppercase">
+                    Data Movimento
+                    <input type="date" name="data" id="data" class="form-input rounded border-gray-300">
+                </label>
+
+                <label for="montante" class="flex flex-col justify-start text-[10px] text-gray-500 uppercase">
+                    Valor
+                    <input type="number" class="form-input rounded border-gray-300" name="montante" id="montante">
+                </label>
+
+                <label for="descricao" class="flex flex-col justify-start text-[10px] text-gray-500 uppercase">
+                    Descrição
+                    <input type="text" class="form-input rounded border-gray-300 w-[650px]" name="descricao" id="descricao">
+                </label>
+
+                <button class="btn bg-primary text-white" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-device-floppy"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="1"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"></path>
+                        <circle cx="12" cy="14" r="2"></circle>
+                        <polyline points="14 4 14 8 8 8 8 4"></polyline>
+                     </svg>
+                    Cadastrar
+                </button>
+            </form>
+        </div>
+        <div class="flex flex-col items-start justify-start shadow drop-shadow-md p-3 rounded-md bg-white mt-4">
+            <h2 class="font-bold text-green-400 mb-2">Lançamentos</h2>
+
+            <div class="flex flex-col items-start justify-start w-full">
+                <div class="flex flex-col w-full">
+                    <div class="lancamento-grupo">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                            <line x1="16" y1="3" x2="16" y2="7"></line>
+                            <line x1="8" y1="3" x2="8" y2="7"></line>
+                            <line x1="4" y1="11" x2="20" y2="11"></line>
+                            <rect x="8" y="15" width="2" height="2"></rect>
+                         </svg>
+
+                         ONTEM
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div> R$ 3.000,00</div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lancamento-dados">
+                        <div class="grow">
+                            Descrição do lançamento
+                        </div>
+                        <div>
+                            <button class="btn-small bg-danger text-white">
+                                Excluir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="flex flex-row w-full border-t border-t-gray-300 text-gray-400 justify-center items-center h-7 uppercase text-[9px]">
+        Criado com muito <strong class="text-red-500 mx-1 text-sm">♥</strong> por Wender Alves Sobrinho
+    </footer>
+</body>
+</html>
