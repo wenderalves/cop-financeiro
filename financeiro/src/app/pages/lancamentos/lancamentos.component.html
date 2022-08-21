@@ -1,0 +1,96 @@
+<app-header titulo="Lançamentos">
+  <div class="flex flex-row items-center justify-start gap-6 my-2">
+    <div class="p-4 flex items-center justify-center rounded-full bg-secundary">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon-tabler icon-tabler-wallet" width="28" height="28"
+        viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path
+          d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12">
+        </path>
+        <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
+      </svg>
+    </div>
+    <div class="indicador">
+      <span class="label">Balanço</span>
+      <span class="valor">{{ balanco | currency : 'BRL'}}</span>
+    </div>
+    <div class="indicador">
+      <span class="label">Entradas</span>
+      <span class="valor">{{ entradas | currency : 'BRL'}}</span>
+    </div>
+    <div class="indicador">
+      <span class="label">Saídas</span>
+      <span class="valor">{{ saidas | currency : 'BRL'}}</span>
+    </div>
+  </div>
+</app-header>
+
+<main class="flex-auto overflow-auto p-4">
+  <div class="flex flex-col items-start justify-start shadow drop-shadow-md p-3 rounded-md bg-white">
+    <h2 class="font-bold text-green-400 mb-2">Nova Movimentação</h2>
+    <form class="flex flex-row gap-4 items-end" [formGroup]="lancamentoForm" (ngSubmit)="addLancamento()">
+      <label for="data" class="flex flex-col justify-start text-[10px] text-gray-500 uppercase">
+        Data Movimento
+        <input type="date" name="data" id="data" class="form-input rounded border-gray-300"
+        formControlName="dataMovimento">
+      </label>
+
+      <label for="montante" class="flex flex-col justify-start text-[10px] text-gray-500 uppercase">
+        Valor
+        <input type="number" class="form-input rounded border-gray-300" name="montante" id="montante"
+        formControlName="valor">
+      </label>
+
+      <label for="descricao" class="flex flex-col justify-start text-[10px] text-gray-500 uppercase">
+        Descrição
+        <input type="text" class="form-input rounded border-gray-300 w-[650px]" name="descricao" id="descricao"
+        formControlName="descricao">
+      </label>
+
+      <button class="btn bg-primary text-white" type="submit" [disabled]="lancamentoForm.invalid">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-floppy" width="24"
+          height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"></path>
+          <circle cx="12" cy="14" r="2"></circle>
+          <polyline points="14 4 14 8 8 8 8 4"></polyline>
+        </svg>
+        Cadastrar
+      </button>
+    </form>
+  </div>
+  <div class="flex flex-col items-start justify-start shadow drop-shadow-md p-3 rounded-md bg-white mt-4">
+    <h2 class="font-bold text-green-400 mb-2">Registros de Lançamentos</h2>
+
+    <div class="flex flex-col items-start justify-start w-full">
+      <div class="flex flex-col w-full" *ngFor="let lc of listaDatas">
+        <div class="lancamento-grupo">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" width="24"
+            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+            <line x1="16" y1="3" x2="16" y2="7"></line>
+            <line x1="8" y1="3" x2="8" y2="7"></line>
+            <line x1="4" y1="11" x2="20" y2="11"></line>
+            <rect x="8" y="15" width="2" height="2"></rect>
+          </svg>
+          {{ verificaDia(lc) }}
+        </div>
+        <div class="lancamento-dados" *ngFor="let lanc of lancamentos[lc]">
+          <div class="grow">
+            {{ lanc.dataMovimento | date: 'dd/MM/yyyy'}} • {{ lanc.descricao }}
+          </div>
+          <div class="w-32">{{ lanc.valor | currency : 'BRL' }}</div>
+          <div>
+            <button class="btn-small bg-danger text-white" (click)="removeLancamento(lanc.id)">
+              Excluir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

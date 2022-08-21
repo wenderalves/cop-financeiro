@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function reset() {\n  this.collectionName = null;\n  this.orderByProperty = null;\n  this.orderByDirection = null;\n  this.limitBy = null;\n  this.docSelectionCriteria = null;\n  this.userErrors = [];\n}","map":null,"metadata":{},"sourceType":"module"}

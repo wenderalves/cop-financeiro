@@ -1,0 +1,1 @@
+{"ast":null,"code":"import logger from '../utils/logger';\nimport reset from '../api-utils/reset';\nexport default function success(message, data) {\n  reset.call(this);\n  logger.log.call(this, message, data);\n  return {\n    success: true,\n    message: message,\n    data: data\n  };\n}","map":null,"metadata":{},"sourceType":"module"}

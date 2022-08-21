@@ -1,0 +1,1 @@
+{"ast":null,"code":"import Localbase from 'localbase';\nexport class LocalDB {\n  constructor() {\n    this._db = new Localbase('db');\n  }\n\n  getDB() {\n    return this._db;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function selectionLevel() {\n  let level;\n  if (!this.collectionName && !this.docSelectionCriteria) level = 'db';else if (this.collectionName && !this.docSelectionCriteria) level = 'collection';else if (this.collectionName && this.docSelectionCriteria) level = 'doc';\n  return level;\n}","map":null,"metadata":{},"sourceType":"module"}

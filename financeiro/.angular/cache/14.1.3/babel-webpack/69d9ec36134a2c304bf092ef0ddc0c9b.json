@@ -1,0 +1,1 @@
+{"ast":null,"code":"import Localbase from './localbase/localbase';\nexport default Localbase;","map":null,"metadata":{},"sourceType":"module"}

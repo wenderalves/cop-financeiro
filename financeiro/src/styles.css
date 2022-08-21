@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply flex flex-row items-center justify-center w-[150px] h-[43px] rounded gap-3;
+  }
+  .btn-small {
+    @apply flex flex-row items-center justify-center w-[100px] h-[32px] rounded gap-2;
+  }
+  .indicador {
+    @apply flex flex-col items-start justify-start;
+  }
+  .indicador .label {
+    @apply text-xs uppercase text-gray-300 leading-none;
+  }
+  .indicador .valor {
+    @apply text-xl font-bold;
+  }
+  .lancamento-grupo {
+    @apply flex flex-row w-full items-center text-xs uppercase bg-secundary p-1 text-white gap-1;
+  }
+  .lancamento-dados {
+    @apply flex flex-row w-full items-center text-sm text-gray-700 pl-10 pr-2 py-1 gap-2 border-b border-gray-100;
+  }
+}
