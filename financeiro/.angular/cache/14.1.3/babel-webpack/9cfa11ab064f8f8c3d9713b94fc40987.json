@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function isSubset(superObj, subObj) {\n  return Object.keys(subObj).every(ele => {\n    if (typeof subObj[ele] == 'object') {\n      return isSubset(superObj[ele], subObj[ele]);\n    }\n\n    return subObj[ele] === superObj[ele];\n  });\n}","map":null,"metadata":{},"sourceType":"module"}

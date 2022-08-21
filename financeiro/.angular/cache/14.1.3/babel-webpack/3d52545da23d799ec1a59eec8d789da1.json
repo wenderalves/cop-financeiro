@@ -1,0 +1,1 @@
+{"ast":null,"code":"import logger from '../utils/logger';\nimport reset from './reset';\nexport default function showUserErrors() {\n  for (let i = 0; i < this.userErrors.length; i++) {\n    logger.error.call(this, this.userErrors[i]);\n  }\n\n  reset.call(this);\n}","map":null,"metadata":{},"sourceType":"module"}

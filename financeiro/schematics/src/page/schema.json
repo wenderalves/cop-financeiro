@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "PageSchematics",
+  "title": "Cria uma estrutura vazia da página",
+  "type": "object",
+  "description": "Cria uma estrutura vazia da página",
+  "properties": {
+    "name": {
+      "type":"string",
+      "description": "Nome da Página",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Qual o nome da nova pagina?"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
