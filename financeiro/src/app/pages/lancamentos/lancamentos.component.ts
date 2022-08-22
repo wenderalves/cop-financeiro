@@ -29,6 +29,9 @@ export class LancamentosComponent implements OnInit {
 
   hoje = new Date();
   constructor(private service: LancamentosService) {
+    this.hoje.setHours(0);
+    this.hoje.setMinutes(0);
+    this.hoje.setSeconds(0);
   }
 
   ngOnInit(): void {
@@ -74,18 +77,11 @@ export class LancamentosComponent implements OnInit {
   verificaDia(dia: string) {
     let hojeDia = this.hoje.getDate();
     let dataRecebida = new Date(dia + 'T00:00:00');
+    let diaAtual = dataRecebida.getDate();
 
-    switch (hojeDia) {
-      case dataRecebida.getDate() - 1:
-        return 'Ontem';
-
-      case dataRecebida.getDate() + 1:
-        return 'Amanhã';
-
-      case dataRecebida.getDate():
-        return 'Hoje';
-    }
-
+    if (diaAtual === hojeDia) return 'Hoje';
+    if (diaAtual > hojeDia && diaAtual === (hojeDia + 1)) return 'Amanhã';
+    if (diaAtual < hojeDia && (diaAtual - 1) === hojeDia) return 'Ontem';
     return dia.replace(/([0-9]{4})-([0-9]{2})-([0-9]{2})/, '$3/$2/$1');
   }
 
